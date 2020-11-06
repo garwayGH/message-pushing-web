@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>index</title>
+    <!-- Bootstrap -->
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--echarts-->
+    <script src="/js/echarts/echarts.min.js"></script>
+    <script src="/js/echarts/vintage.js"></script>
+    <!--layui-->
+    <link rel="stylesheet" href="/layui/css/layui.css" media="all"/>
+    <script src="/layui/layui.js" charset="utf-8"></script>
+    <style>
+        body {
+            background-color: rgba(254,248,239,1);
+        }
+        .chart {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-2">
+            <div class="col-lg-7">
+                <div class="layui-inline">
+                    <div class="layui-input-inline" style="margin-top: 20px;">
+                        <input autocomplete="off" type="text" class="layui-input" id="time" placeholder="yyyy-MM-dd"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1">
+                <button id="button" style="margin-top: 20px;" type="button" class="layui-btn layui-btn-primary layui-btn-radius">查询</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div  class="col-lg-4 chart">
+            <div id="div1" style="height: 400px;width: 100%;">
+            </div>
+        </div>
+        <div  class="col-lg-4 chart">
+            <div id="div2" style="height: 400px;width: 100%;">
+            </div>
+        </div>
+        <div  class="col-lg-4 chart">
+            <div id="div3" style="height: 400px;width: 100%;">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/js/jqurey/jquery-3.5.1.min.js"></script>
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+<script>
+
+    layui.use('laydate', function () {
+        let laydate = layui.laydate;
+
+        laydate.render({
+            elem: '#time'
+        });
+
+    });
+
+    let url = "http://localhost:7778/testHello/getChartJson";
+    let url1 = "http://localhost:7778/testHello/getChartJson1";
+    $(function () {
+        $.get(url,function (data,status) {
+            // console.log(data);
+            if (status === "success") {
+                if (data !== null && data !== "") {
+                    let json = JSON.parse(data);
+                    setData(json);
+                }
+            }
+        });
+
+    });
+
+
+    $("#button").click(function () {
+        $.get(url1,function (data,status) {
+            if (status === "success") {
+                if (data !== null && data !== "") {
+                    let json = JSON.parse(data);
+                    setData(json);
+                }
+            }
+        });
+    });
+
+    function setData(data) {
+        // console.log(data);
+        iosChart.setOption({
+            series:{
+                data: data
+            }
+        });
+        androidChart.setOption({
+            series: {
+                data: data
+            }
+        });
+        othersChart.setOption({
+            series:{
+                data: data
+            }
+        });
+    }
+</script>
+<script src="/js/myCharts/iosChart.js"></script>
+<script src="/js/myCharts/androidChart.js"></script>
+<script src="/js/myCharts/othersChart.js"></script>
+</body>
+</html>

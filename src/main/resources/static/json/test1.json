@@ -1,0 +1,52 @@
+{
+  "appkey":"xx",
+  "timestamp":"xx",
+  "type":"xx",
+  "device_tokens":"xx",
+  "alias_type": "xx",
+  "alias":"xx",
+  "file_id":"xx",
+  "filter":{},
+  "payload": {
+    "display_type":"xx",
+    "body": {
+
+      "ticker":"xx",
+      "title":"xx",
+      "text":"xx",
+
+      "icon":"xx",
+      "largeIcon":"xx",
+      "img": "xx",
+      "sound": "xx",
+      "builder_id": 1,
+      "play_vibrate":"true/false",
+      "play_lights":"true/false",
+      "play_sound":"true/false",
+
+
+      "after_open": "xx",
+      "url": "xx",
+      "activity":"xx",
+      "custom":"xx"
+},
+"extra":{
+"key1": "value1",
+"key2": "value2"
+}
+},
+"policy":{
+"start_time":"xx",
+"expire_time":"xx",
+"max_send_num": 1,
+"out_biz_no": "xx"
+},
+"production_mode":"true/false",
+"description": "xx",
+"mipush": "true/false",
+"mi_activity": "xx",
+"channel_properties":{
+"xiaomi_channel_id":"",
+"vivo_classification":"1"
+}
+}

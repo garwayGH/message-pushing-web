@@ -1,0 +1,37 @@
+{
+  "appkey":"xx",
+  "timestamp":"xx",
+  "type":"xx",
+  "device_tokens":"xx",
+  "alias_type": "xx",
+  "alias":"xx",
+  "file_id":"xx",
+  "filter":{},
+  "payload":
+  {
+    "aps":
+    {
+      "alert":{
+        "title":"title",
+        "subtitle":"subtitle",
+        "body":"body"
+      },
+      "badge": 1,
+      "sound": "xx",
+      "content-available":1,
+      "category": "xx"
+    },
+    "key1":"value1",
+    "key2":"value2"
+  },
+  "policy":
+  {
+    "start_time":"xx",
+    "expire_time":"xx",
+    "out_biz_no": "xx" ,
+    "apns_collapse_id": "xx"
+  },
+  "production_mode":"true/false" ,
+  "description": "xx"
+}
+
